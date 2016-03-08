@@ -1,0 +1,9 @@
+node_modules
+dist
+app/bower_components
+.tmp
+.publish/
+.env
+.DS_Store
+npm-debug.log
+Gemfile.lock

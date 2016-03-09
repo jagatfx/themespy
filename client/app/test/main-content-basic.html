@@ -10,36 +10,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <html>
-
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>Elements Test Runner</title>
-  <meta charset="UTF-8">
+  <title>main-content</title>
 
-  <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../bower_components/web-component-tester/browser.js"></script>
-</head>
 
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../elements/main-content/main-content.html">
+
+</head>
 <body>
 
-  <script>
-    WCT.loadSuites([
-      'page-home-basic.html',
-      'page-home-basic.html?dom=shadow',
-      'page-users-basic.html',
-      'page-users-basic.html?dom=shadow',
-      'page-contact-basic.html',
-      'page-contact-basic.html?dom=shadow',
-      'page-userinfo-basic.html',
-      'page-userinfo-basic.html?dom=shadow',
-      'product-item-basic.html',
-      'product-item-basic.html?dom=shadow',
-      'product-list-basic.html',
-      'product-list-basic.html?dom=shadow'
-    ]);
-  </script>
+<test-fixture id="basic">
+  <template>
+    <main-content></main-content>
+  </template>
+</test-fixture>
 
+<script>
+  describe('main-content tests', function() {
+    var element;
+
+    before(function() {
+      element = fixture('basic');
+    });
+
+    it('', function() {
+
+    });
+
+  });
+</script>
 
 </body>
-
 </html>

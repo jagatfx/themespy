@@ -39,7 +39,7 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
-var DIST = '../public/dmd';
+var DIST = '../public';
 
 var dist = function(subpath) {
   return !subpath ? DIST : path.join(DIST, subpath);
@@ -211,7 +211,7 @@ gulp.task('cache-config', function(callback) {
 
 // Clean output directory
 gulp.task('clean', function() {
-  return del(['.tmp', dist()]);
+  return del(['.tmp', dist()], {force: true});
 });
 
 // Watch files for changes & reload
@@ -265,6 +265,13 @@ gulp.task('serve:dist', ['default'], function() {
     server: dist(),
     middleware: [historyApiFallback()]
   });
+});
+
+gulp.task('watch', ['styles', 'elements'], function() {
+  gulp.watch(['app/**/*.html'], ['default']);
+  gulp.watch(['app/styles/**/*.css'], ['styles', 'default']);
+  gulp.watch(['app/elements/**/*.css'], ['elements', 'default']);
+  gulp.watch(['app/images/**/*'], ['default']);
 });
 
 // Build production files, the default task

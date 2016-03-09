@@ -22,10 +22,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <paper-material elevation="1">
         <h2 class="page-title">Users</h2>
         <p>This is the users section</p>
-        <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-        <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-        <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-        <a href$="{{baseUrl}}users/Sam">Sam</a>
+        <a href="/users/Addy">Addy</a><br>
+        <a href="/users/Rob">Rob</a><br>
+        <a href="/users/Chuck">Chuck</a><br>
+        <a href="/users/Sam">Sam</a>
       </paper-material>
     </div>
   </template>
@@ -37,11 +37,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       is: 'page-users',
 
       properties: {
-        foo: {
-          type: String,
-          value: 'page-users',
-          notify: true
-        }
       }
     });
   })();

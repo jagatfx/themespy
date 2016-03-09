@@ -1,0 +1,118 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="product-item">
+  <template>
+    <style include="shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+      .product-card {
+        display: inline-block;
+        background: white;
+        box-sizing: border-box;
+        width: 255px;
+        margin: 16px;
+        text-align: center;
+        cursor: pointer;
+        elevation: 2;
+      }
+      .product-image {
+        --iron-image-width: 255px;
+      }
+      .product-image-full {
+        --iron-image-width: 590px;
+      }
+      .price-badge {
+        --paper-badge-width: 40px;
+        --paper-badge-height: 40px;
+      }
+      paper-icon-button {
+        color: var(--paper-grey-600);
+      }
+      a {
+        text-decoration: none;
+      }
+      .container {
+        margin: 5px;
+      }
+      .container div {
+        margin-top: 2px;
+        color: black;
+        font-size: 10px;
+      }
+    </style>
+    <paper-card id="card[[product._id]]" class="product-card">
+      <iron-image class="product-image" src="[[product.featureimg]]"
+                  on-tap="_toggleDialog"
+                  alt="[[product.title]]">
+      </iron-image>
+      <div class="card-content">
+        <h3>[[product.title]]</h3>
+      </div>
+      <paper-badge class="price-badge"
+                   for="card[[product._id]]"
+                   label="$[[product.cost]]">
+      </paper-badge>
+      <div class="card-actions horizontal justified">
+        <span class="container">
+          <paper-icon-button class="info" icon="icons:info" data-dialog="dialog" on-tap="_toggleDialog"></paper-icon-button>
+          <div>info</div>
+        </span>
+        <span class="container">
+          <a href="[[product.previewlink]]" target="_blank">
+            <paper-icon-button icon="icons:visibility"></paper-icon-button>
+            <div>preview</div>
+          </a>
+        </span>
+        <span class="container">
+          <a href="[[product.link]]" target="_blank">
+            <paper-icon-button icon="icons:get-app"></paper-icon-button>
+            <div>download</div>
+          </a>
+        </span>
+      </div>
+    </paper-card>
+
+    <paper-dialog id="dialog">
+      <h3>[[product.title]]</h3>
+      <iron-image class="product-image-full" src="[[product.featureimg]]"
+                  on-tap="_toggleDialog"
+                  alt="[[product.title]]">
+      </iron-image>
+      <div>
+        <h4>$[[product.cost]]</h4>
+      </div>
+      <div class="horizontal centered-container wrap">
+        <span class="container">
+          <a href="[[product.previewlink]]" target="_blank">
+            <paper-icon-button icon="icons:visibility"></paper-icon-button>
+            <div>preview</div>
+          </a>
+        </span>
+        <span class="container">
+          <a href="[[product.link]]" target="_blank">
+            <paper-icon-button icon="icons:get-app"></paper-icon-button>
+            <div>download</div>
+          </a>
+        </span>
+      </div>
+    </paper-dialog>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'product-item',
+
+      properties: {
+      },
+
+      _toggleDialog: function(e) {
+        this.$.dialog.toggle();
+      },
+    });
+  })();
+  </script>
+</dom-module>

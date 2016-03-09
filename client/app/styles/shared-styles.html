@@ -75,6 +75,55 @@
         padding: 0 16px;
       }
 
+      .page-header {
+        @apply(--layout-center-justified);
+      }
+
+      .centered-container {
+         @apply(--layout-center-justified);
+         text-align: center;
+      }
+
+      .horizontal {
+        @apply(--layout-horizontal);
+      }
+      .vertical {
+        @apply(--layout-vertical);
+      }
+      .justified {
+        @apply(--layout-justified);
+      }
+      .end-justified {
+        @apply(--layout-end-justified);
+      }
+
+      paper-button.btn {
+        --paper-button-ink-color: var(--primary-text-color);
+        /* These could also be individually defined for each of the
+          specific css classes, but we'll just do it once as an example */
+        --paper-button-flat-keyboard-focus: {
+          background-color: var(--light-accent-color);
+        };
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--dark-primary-color) !important;
+        };
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 20px;
+        background-color: var(--accent-color);
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--dark-primary-color) !important;
+        };
+      }
+      paper-button.btn:hover {
+        background-color: var(--light-accent-color);
+        color: #000;
+      }
+
+      .wrap {
+        @apply(--layout-wrap);
+      }
+
       #mainToolbar.tall .app-name {
         font-size: 40px;
         font-weight: 300;
@@ -166,7 +215,7 @@
         }
 
         iron-pages {
-          padding: 48px 62px;
+          padding: 0px 10px;
         }
 
         paper-material {

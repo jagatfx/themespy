@@ -9,5 +9,3 @@ npm-debug.log
 Gemfile.lock
 public/dist
 data
-public-src
-public
